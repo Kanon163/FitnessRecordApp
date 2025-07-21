@@ -1,0 +1,191 @@
+/* 全局样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 100px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* 头部 */
+header {
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 { margin: 0; font-size: 1.5em; }
+.header-buttons { display: flex; gap: 10px; }
+.header-buttons button {
+    border: 1px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#datetime { text-align: center; margin-top: 10px; }
+#datetime p { margin: 2px 0; color: #666; font-size: 0.9em; }
+
+.focus-container {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#focus-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* 训练表格 */
+.table-container { padding: 0 5px; margin-top: 20px; }
+#workout-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+#workout-table th, #workout-table td {
+    border: 1px solid #eee;
+    padding: 10px 4px;
+    text-align: center;
+    vertical-align: middle;
+}
+#workout-table th {
+    background-color: #f8f9fa;
+    font-size: 0.7em;
+    color: #555;
+    white-space: nowrap;
+}
+#workout-table input {
+    width: 85%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9em;
+}
+.set-cell { cursor: pointer; font-weight: bold; color: #007bff; }
+.set-cell:hover { background-color: #f0f8ff; }
+
+/* 休息计时器 & 删除按钮 */
+.rest-cell button {
+    font-size: 0.8em;
+    padding: 5px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.rest-cell .btn-start-rest { background-color: #17a2b8; }
+.rest-cell .btn-stop-rest { background-color: #ffc107; }
+.rest-cell .timer-display { font-weight: bold; font-size: 0.9em; }
+.delete-btn { color: #dc3545; cursor: pointer; font-size: 1.2em; }
+
+/* 底部添加按钮 */
+#add-workout-btn {
+    position: fixed;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 36px;
+    line-height: 60px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* 通用模态框样式 */
+.modal-hidden { display: none; }
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+.modal-content h2 { margin-top: 0; }
+.modal-content .close-btn {
+    width: 100%; padding: 12px;
+    margin-top: 15px; background-color: #6c757d;
+    color: white; border: none; border-radius: 8px; cursor: pointer;
+}
+
+/* 动作选择模态框 */
+#modal-filter-container {
+    display: flex; flex-wrap: wrap;
+    gap: 8px; margin-bottom: 15px;
+}
+#modal-filter-container .filter-btn {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+#modal-filter-container .filter-btn.active { background-color: #007bff; color: white; }
+#action-list { flex-grow: 1; overflow-y: auto; }
+#action-list .action-item { padding: 15px; border-bottom: 1px solid #eee; cursor: pointer; }
+
+/* 训练日志模态框 */
+#log-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.log-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+}
+.log-item:last-child { border-bottom: none; }
+.log-item input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+.log-item-info {
+    display: flex;
+    flex-direction: column;
+}
+.log-item-info .date { font-weight: bold; }
+.log-item-info .focus { font-size: 0.9em; color: #555; }
+.log-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.log-actions button {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+#export-selected-btn { background-color: #007bff; }
+#close-log-modal-btn { background-color: #6c757d; }
