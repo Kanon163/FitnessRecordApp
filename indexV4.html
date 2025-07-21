@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>健身记录器 V4</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>我的训练</h1>
+            <div class="header-buttons">
+                <button id="view-log-btn">查看日志</button>
+                <button id="export-btn">导出本日</button>
+            </div>
+        </div>
+        <div id="datetime">
+            <p id="current-date"></p>
+            <p id="current-time"></p>
+        </div>
+        <div class="focus-container">
+            <label for="focus-input">本日重点:</label>
+            <input type="text" id="focus-input" placeholder="例如: 胸, 肩">
+        </div>
+    </header>
+
+    <main>
+        <div class="table-container">
+            <table id="workout-table">
+                <thead>
+                    <tr>
+                        <th>动作</th>
+                        <th>组数</th>
+                        <th>重量(kg)</th>
+                        <th>次数</th>
+                        <th>RPE</th>
+                        <th>备注</th>
+                        <th>休息(s)</th>
+                        <th>删除</th>
+                    </tr>
+                </thead>
+                <tbody id="workout-body"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <button id="add-workout-btn">+</button>
+
+    <div id="action-modal" class="modal-hidden">
+        <div class="modal-content">
+            <h2>选择一个动作</h2>
+            <div id="modal-filter-container"></div>
+            <div id="action-list"></div>
+            <button id="close-action-modal-btn">关闭</button>
+        </div>
+    </div>
+
+    <div id="log-modal" class="modal-hidden">
+        <div class="modal-content">
+            <h2>训练日志</h2>
+            <div id="log-list">
+                </div>
+            <div class="log-actions">
+                <button id="export-selected-btn">导出选中记录</button>
+                <button id="close-log-modal-btn">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
